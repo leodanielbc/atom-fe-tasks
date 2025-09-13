@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Usuario no encontrado</h2>
+<mat-dialog-content>
+    <p>El correo <strong>{{ data.email }}</strong> no está registrado.</p>
+    <p>¿Deseas crear una nueva cuenta con este correo?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onDismiss()">Cancelar</button>
+    <button mat-raised-button color="primary" (click)="onConfirm()">Crear Cuenta</button>
+</mat-dialog-actions>
