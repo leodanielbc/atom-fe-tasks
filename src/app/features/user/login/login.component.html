@@ -1,0 +1,32 @@
+<div class="login-container">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title>
+                <h1>Bienvenido</h1>
+            </mat-card-title>
+            <mat-card-subtitle>
+                Ingresa tu correo para continuar
+            </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Correo Electrónico</mat-label>
+                    <input matInput formControlName="email" type="email" placeholder="tu@correo.com" required>
+
+                    <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+                        El correo es <strong>requerido</strong>.
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+                        Por favor, ingresa un correo válido.
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+                    Ingresar o Registrarse
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
